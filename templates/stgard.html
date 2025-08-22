@@ -17,7 +17,7 @@
             <h3 class="word">Region</h3>
             <div class="custom-select">
                 <select name="region">
-                    {% for r in regions %}
+                    {% for r in region %}
                     <option value="{{ r }}">{{ r }}</option>
                     {% endfor %}
                 </select>
@@ -25,8 +25,8 @@
 
             <h3 class="word">Indoor / Outdoor Plant</h3>
             <div class="custom-select">
-                <select name="inout">
-                    {% for i in InOut %}
+                <select name="indoor_outdoor">
+                    {% for i in indoor_outdoor %}
                     <option value="{{ i }}">{{ i }}</option>
                     {% endfor %}
                 </select>
@@ -34,8 +34,8 @@
 
             <h3 class="word">Difficulty level</h3>
             <div class="custom-select">
-                <select name="care">
-                    {% for c in Care %}
+                <select name="additional_care">
+                    {% for c in additional_care %}
                     <option value="{{ c }}">{{ c }}</option>
                     {% endfor %}
                 </select>

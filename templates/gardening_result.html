@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matching Flowers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .flower-card {
+            background-color: #F6EFFB;
+            border: 1px solid #B478B8;
+            border-radius: 10px;
+            margin: 15px 0;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0px 0px 8px rgba(184, 136, 207, 0.2);
+        }
+
+        .flower-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 20px;
+            border: 2px solid #B478B8;
+        }
+
+        .flower-info {
+            text-align: left;
+        }
+
+        .flower-info h3 {
+            margin: 0;
+            color: #6B4B9A;
+            font-size: 1.2rem;
+        }
+
+        .flower-info p {
+            margin: 5px 0 0;
+            color: #9C62A1;
+        }
+
+        .btn {
+            background-color: #B478B8;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-style: oblique;
+        }
+
+        .btn:hover {
+            background-color: #9C62A1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="word">Matching Flowers</h2>
+        <!-- Inside the for loop in gardening_result.html -->
+
+        {% for flower in flowers %}
+        <a href="{{ url_for('start_growing', flower_name=flower.flower_name) }}" style="text-decoration: none;">
+            <div class="flower-card">
+                <img src="{{ url_for('static', filename=flower.flower_name ~ '.png') }}" alt="{{ flower.flower_name }}">
+                <div class="flower-info">
+                    <h3>{{ flower.flower_name }}</h3>
+                    <p><em>{{ flower.scientific_name }}</em></p>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+        <a href="{{ url_for('startgardening') }}" class="btn">Back</a>
+    </div>
+</body>
+</html>

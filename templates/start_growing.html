@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Start Growing</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2 class="word">Let's Start Growing!</h2>
+    {% if flower %}
+    <table>
+        <tr>
+            <td><strong>Flower </strong></td>
+            <td> {{ flower.flower_name }}</td>
+        </tr>
+        <tr>
+            <td><strong>Scientific Name </strong>
+            <td>{{ flower.scientific_name }}</td>
+        </tr>
+        <tr>
+            <td><strong>Interesting Fact </strong></td>
+            <td>{{ flower.interesting_fact }}</td>
+        </tr>
+    </table>
+    <P>
+    <h2 class="word"> Growing Tips </P></h2>
+    <table>
+        <tr>
+            <td><strong>Harvesting period </strong></td>
+            <td>{{ flower.harvesting_period }}</td>
+        </tr>
+        <tr>
+            <td><strong>Soil Type </strong></td>
+            <td> {{ flower.soil_type }}</td>
+        </tr>
+        <tr>
+            <td><strong>Sowing period </strong></td>
+            <td>{{ flower.sowing_period }}</td>
+        </tr>
+        <tr>
+            <td><strong>Pests to Avoid </strong></td>
+            <td> {{ flower.pests_to_avoid }}</td>
+        </tr>
+        <tr>
+            <td><strong>Pesticides </strong></td>
+            <td> {{ flower.pesticides }}</td>
+        </tr>
+        <tr>
+            <td><strong>Additional care </strong></td>
+            <td>{{ flower.additional_care }}</td>
+        </tr>
+    </table>
+    {% else %}
+    <p>Flower not found.</p>
+    {% endif %}
+    <P>
+        <button onclick="history.back()">Back</button>
+    </P>
+</div>
+</body>
+</html>

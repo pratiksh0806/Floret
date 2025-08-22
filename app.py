@@ -8,7 +8,7 @@ app.secret_key = 'your_secret_key'
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'deens' 
+app.config['MYSQL_PASSWORD'] = 'root'
 app.config['MYSQL_DB'] = 'pythonlogin'
 
 mysql = MySQL(app)
@@ -71,33 +71,38 @@ def register():
         else:
             cursor.execute('INSERT INTO accounts VALUES (NULL, "{}", "{}", "{}")'.format (username, password, email))
             mysql.connection.commit()
-            msg = 'You have successfully registered!'
+            return render_template('index.html', msg='Registered successfully!')
     return render_template('register.html', msg=msg)
 
-@app.route('/startgardening', methods=['GET'])
-def dropdown():
-    regions = ['North','South']
-    InOut = ['Indoor','Outdoor']
-    Care = ['Easy','Medium','Hard']
-    return render_template('stgard.html', regions=regions, InOut=InOut, Care=Care)
+@app.route('/startgardening', methods=['GET','POST'])
+def startgardening():
+    region = ['North','South','Both']
+    indoor_outdoor = ['Indoor','Outdoor','Both']
+    additional_care = ['Easy','Medium','Hard']
+    return render_template('stgard.html', region=region, indoor_outdoor=indoor_outdoor, additional_care=additional_care)
 
-@app.route('/submitgardening', methods=['GET', 'POST'])
+@app.route('/submitgardening', methods=['GET','POST'])
 def submitgardening():
-    msg = ''
-    if request.method == 'POST' and 'region' in request.form and 'inout' in request.form and 'care' in request.form:
+    if request.method == 'POST':
         region = request.form['region']
-        inout = request.form['inout']
-        care = request.form['care']
+        indoor_outdoor = request.form['indoor_outdoor']
+        additional_care = request.form['additional_care']
 
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('select * from flowers where region = "{}" and indout = "{}" and care = "{}"'.format (region, inout, care))
-        global fls
-        fls= cursor.fetchall()
-        mysql.connection.commit()
-        return render_template('stgard.html', msg=msg, regions=['North','South'], InOut=['Indoor','Outdoor'], Care=['Easy','Medium','Hard'])
-    else:
-        return render_template('stgard.html', msg=msg, regions=['North','South'], InOut=['Indoor','Outdoor'], Care=['Easy','Medium','Hard'])
+        cursor.execute('''
+            SELECT * FROM flowers 
+            WHERE region = %s AND indoor_outdoor = %s AND additional_care = %s
+        ''', (region, indoor_outdoor, additional_care))
+        flowers = cursor.fetchall()
+        return render_template('gardening_result.html', flowers=flowers)
 
+@app.route('/start_growing/<flower_name>')
+def start_growing(flower_name):
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute("SELECT * FROM flowers WHERE flower_name = %s", (flower_name,))
+    flower = cursor.fetchone()
+    print('Fetched', flower)
+    return render_template('start_growing.html', flower=flower)
 
 if __name__ == '__main__':
     app.run(debug=True)

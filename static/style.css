@@ -118,3 +118,13 @@ a:hover {
 .custom-select select:hover {
     color: #eca2ef;
 }
+
+table, th, td {
+  border-collapse: collapse;
+  border: 1px solid;
+  text-align: center;
+}
+
+th, td {
+  padding: 10px;
+}
