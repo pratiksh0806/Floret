@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Floret</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Lora&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f9cde4;
+      font-family: 'Quicksand', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    .logo {
+      height: 100px;
+      width: auto;
+      border-radius: 50%;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .card {
+      background: #fbe7f4;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      max-width: 900px;
+      margin: 120px auto 30px;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: 36px;
+      color: #5c3c74;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 28px;
+      color: #4c2f5c;
+      font-family: 'Lora', serif;
+      margin-top: 40px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    ul.flower-list {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 20px auto 30px;
+      text-align: left;
+    }
+
+    .flower-list li::before {
+      content: "🌸";
+      margin-right: 12px;
+    }
+
+    .flower-list li {
+      font-size: 18px;
+      margin-bottom: 12px;
+      color: #3d2a4d;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #5c3c74;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px dashed #d8a8d8;
+      width: 60px;
+      margin: 30px auto;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="{{ url_for('home') }}">
+      <img src="{{ url_for('static', filename='images/floret_small.png') }}" alt="Floret Logo" class="logo">
+    </a>
+  </header>
+
+  <div class="card">
+    <h1>About Floret</h1>
+    <p>
+      Floret is your cozy companion for everything green and growing. 🪴
+    </p>
+    <p>
+      Floret is a gentle guide for anyone who’s new to the world of plants and flowers. Whether you’ve always wanted a little garden but didn’t know where to begin, or you just want a few blooms on your balcony, Floret helps you take that first step.
+    </p>
+    <p>
+      We believe floriculture — the art of growing and caring for flowers — should be simple, joyful, and accessible to everyone. That’s why Floret provides easy-to-understand information, beginner-friendly tips, and tools that help you choose the right flowers, understand basic care, and start growing with confidence.
+    </p>
+    <p>
+      No experience? No problem. Floret is for first-time gardeners, plant dreamers, and flower lovers who just need a little guidance to bring their garden to life. 🌼
+    </p>
+    <hr>
+
+    <h2>With Floret, you can:</h2>
+    <ul class="flower-list">
+      <li>Find flowers that match your space and lifestyle</li>
+      <li>Learn when and how to plant them</li>
+      <li>Understand how much sunlight and water they need</li>
+      <li>Start gardening at your own pace</li>
+    </ul>
+
+    <a href="{{ url_for('home') }}">← Back to Home</a>
+  </div>
+
+</body>
+</html>

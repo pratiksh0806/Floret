@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Dropdown</title>
+</head>
+<body>
+    {% if msg %}
+    <p class="message">{{ msg }}</p>
+    {% endif %}
+    <div class="container">  <!-- Wrapper for form -->
+        <h2 class="word">Select Your Preferences</h2>
+        <p class="bottom">Fill in the information below so we can get started!</p>
+        <form action="/submitgardening" method="POST">
+            <h3 class="word">Region</h3>
+            <div class="custom-select">
+                <select name="region">
+                    {% for r in regions %}
+                    <option value="{{ r }}">{{ r }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <h3 class="word">Indoor / Outdoor Plant</h3>
+            <div class="custom-select">
+                <select name="inout">
+                    {% for i in InOut %}
+                    <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <h3 class="word">Difficulty level</h3>
+            <div class="custom-select">
+                <select name="care">
+                    {% for c in Care %}
+                    <option value="{{ c }}">{{ c }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button class="btn" type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

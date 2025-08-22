@@ -1,0 +1,76 @@
+<head>
+  <meta charset="UTF-8">
+  <title>About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Lora&display=swap" rel="stylesheet">
+
+  <style>
+    h2 {
+  font-size: 28px;
+  color: #4c2f5c;
+  font-family: 'Lora', serif;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.team-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.card-member {
+  background: #fce6f4;
+  border-radius: 16px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-member:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.card-member img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #d3a2cc;
+}
+
+.card-member h3 {
+  margin: 10px 0 5px;
+  color: #5c3c74;
+  font-size: 20px;
+}
+
+.card-member p {
+  font-size: 14px;
+  color: #444;
+  margin: 5px 0;
+}
+  </style>
+<h2>Meet the Team</h2>
+<div class="team-container">
+
+  <div class="card-member">
+    <h3>Spriha</h3>
+  </div>
+
+  <div class="card-member">
+    <h3>Ridhi</h3>
+  </div>
+
+  <div class="card-member">
+    <h3>Pratikshana</h3>
+  </div>
+  <a href="{{ url_for('home') }}">← Back to Home</a>
+</div>
+</head>

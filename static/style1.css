@@ -1,0 +1,83 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F3E8F9; /* soft lilac */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fad8e7; /* soft blush pink */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 12px rgba(184, 136, 207, 0.3); /* lavender shadow */
+    text-align: center;
+    width: 350px;
+}
+
+h1 {
+    color: #FFFFFF;
+    font-style: oblique;
+    font-weight: bold;
+    background-color: #B478B8; /* soft mauve */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Input fields */
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #F6EFFB; /* pastel lavender */
+    text-align: center;
+    font-weight: bold;
+    font-style: oblique;
+}
+
+/* Placeholder text styling */
+::placeholder {
+    color: #B478B8; /* matches header */
+    font-weight: bold;
+    font-style: oblique;
+}
+
+/* Button styling */
+button {
+    width: 95%;
+    padding: 12px;
+    background-color: #B478B8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-style: oblique;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #9C62A1; /* slightly deeper purple */
+}
+
+/* Bottom text link */
+p {
+    margin-top: 15px;
+    color: #9C62A1;
+    font-style: oblique;
+}
+
+a {
+    color: #6B4B9A; /* a rich lavender link */
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
